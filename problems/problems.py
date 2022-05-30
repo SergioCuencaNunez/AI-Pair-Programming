@@ -1,7 +1,7 @@
 import problem as pb
 import json
 
-def get_problems_json():
+def get_data():
     with open('./data/problems.jsonl', 'r') as json_file:
             problems_json = list(json_file)
     return problems_json
@@ -11,7 +11,7 @@ class Problems:
         self._problems = problems
 
     def get_problems(self):
-        problems_json = get_problems_json()
+        problems_json = get_data()
         self._problems = []
         for problem_json in problems_json:
             problem = json.loads(problem_json)
@@ -20,4 +20,4 @@ class Problems:
         
         return self._problems
 
-problems = Problems(get_problems_json()).get_problems()
+problemas = Problems(get_data()).get_problems()
