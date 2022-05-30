@@ -1,9 +1,8 @@
 class Model:
-    def __init__(self, function):
-        self._function = function
+    def __init__(self, conf):
+        self._conf = conf
     
-    def get_function(self):
-        return self._function
+    def apply_model(self):
+        #return self._function
 
 model = Model("def return_x(x):\n  return x")
-print(model.get_function())
