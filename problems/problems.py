@@ -8,7 +8,7 @@ class Problems:
     def get_problem(self):
         return self._problem
 
-    def get_problems():
+    def get_problems(self):
         with open('./data/problems.jsonl', 'r') as json_file:
             problems_json = list(json_file)
 
