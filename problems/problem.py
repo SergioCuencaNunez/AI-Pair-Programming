@@ -29,5 +29,5 @@ class Problem:
     def set_entry_point(self, value):
         self._entry_point = value
     
-
-problem = Problem("test/0", "def return_x(x):\n", "return x", "return_x(x)")
+    def __str__(self):
+        return self._task_id + ", " + self._prompt + ", " + self._canonical_solution + ", " + self._entry_point 
