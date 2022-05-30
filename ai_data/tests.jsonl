@@ -1,0 +1,4 @@
+{"test_id": "test/0", "test": "def check(candidate):\n    assert candidate() == 1"}
+{"test_id": "test/1", "test": "def check(candidate):\n    assert candidate() == 2"}
+{"test_id": "test/2", "test": "def check(candidate):\n    assert candidate() == 3"}
+{"test_id": "test/3", "test": "def check(candidate):\n    assert candidate() == 4"}
