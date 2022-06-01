@@ -11,13 +11,8 @@ class Model_Dummy(Model):
     
     def apply_model(self, problems):
         solutions = {}
-        for i, problem in enumerate(problems):
+        for i, problem in problems.items():
             canonical_solution = {}
-            canonical_solution["solution"] = problems[problem]['canonical_solution']
-            solutions[problem] = canonical_solution
+            canonical_solution["solution"] = problem['canonical_solution']
+            solutions[i] = canonical_solution
         return solutions
-        #for problem in problems:
-        #    canonical_solution = {}
-        #    canonical_solution["solution"] = problems[problem]['canonical_solution']
-        #    solutions[problem] = canonical_solution
-        #return solutions

@@ -23,6 +23,20 @@ class Unit_Tests_Dummy(Unit_Tests):
             self.tests[test['test_id']] = test_class.__dict__
         return self.tests
     
-    #def apply_unit_tests(self, programs):
-    #    unit_tests = {}
-    #    for i, program in enumerate(programs):
+    def apply_unit_tests(self, programs, tests):
+        results = {}
+        unit_test = {}
+        unit_tests = tests
+        for i, program in programs.items():
+            try:
+                exec(program)
+                result = True
+                results[i] = result
+            except BaseException:
+                result = False
+                results[i] = result
+        
+        for i, unit_test in unit_tests.items():
+            unit_test["passed"] = results[i] 
+            unit_tests[i] = unit_test 
+        return unit_tests

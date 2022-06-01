@@ -24,4 +24,4 @@ Proyecto de Inteligencia Artificial en Accenture
 
 - Corrección errores generales.
 - Cambios en los flujos del controlador.
-- Introducción Unit Testing.
+- Implementación básica de Unit Testing.

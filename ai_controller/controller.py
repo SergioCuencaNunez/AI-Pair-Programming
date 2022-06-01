@@ -24,16 +24,25 @@ class Controller:
         return data['tests']
 
     def apply_unit_tests(self):
-        programs = {}
-        for i, problem in enumerate(self.problems):
-            check_program = (
-                self.problems[problem]["prompt"] + self.solutions[problem]["solution"] + "\n" +
-                self.tests[problem]["test"] + "\n" +
-                f"check({self.problems[problem]['entry_point']})" + "\n"
+        solutions = {}
+        for i, solution in self.solutions.items():
+            completion = (solution["solution"]
             )
-            programs[self.problems[problem]["task_id"]] = check_program
-        return programs
+            solutions[i] = completion
 
-controller = Controller()
-programs = controller.apply_unit_tests()
-print(programs)
+        tests = {}
+        for i, test in self.tests.items():
+            test = (test["test"]
+            )
+            tests[i] = test
+
+        programs = {}
+        for i, problem in self.problems.items():
+            check_program = (
+                problem["prompt"] + solutions[i] + "\n" +
+                tests[i] + "\n" +
+                f"check({problem['entry_point']})" + "\n"
+            )
+            programs[i] = check_program
+        
+        return Unit_Tests_Dummy.apply_unit_tests(self, programs, self.tests)
