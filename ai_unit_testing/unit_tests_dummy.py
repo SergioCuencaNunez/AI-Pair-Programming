@@ -1,21 +1,24 @@
+import sys,os
 import json
-import unit_test as ut
-from unit_tests import Unit_Tests
+
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BASE)
+
+from ai_unit_testing.unit_test import Unit_Test
+from ai_unit_testing.unit_tests import Unit_Tests
 
 class Unit_Tests_Dummy(Unit_Tests):
     def __init__(self, path):
         super().__init__(path)
     
     def get_tests(self):
-        self._tests = [] 
+        self.tests = {} 
        
-        with open(self._path, 'r') as json_file:
+        with open(self.path, 'r') as json_file:
             tests_json = list(json_file)
         
         for test_json in tests_json:
             test = json.loads(test_json)
-            test_class = ut.Unit_Test(test['test_id'],test['test'])
-            self._tests.append(test_class)
-        return self._tests
-
-tests = Unit_Tests_Dummy('./data/tests.jsonl')
+            test_class = Unit_Test(test['test_id'],test['test'])
+            self.tests[test['test_id']] = test_class.__dict__
+        return self.tests

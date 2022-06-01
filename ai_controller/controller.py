@@ -4,6 +4,7 @@ sys.path.insert(0, BASE)
 
 from ai_problems.problems_dummy import Problems_Dummy
 from ai_model.model_dummy import Model_Dummy
+from ai_unit_testing.unit_tests_dummy import Unit_Tests_Dummy
 
 class Controller:
     def __init__(self):
@@ -18,6 +19,9 @@ class Controller:
     def apply_model(self):
          self.solutions = Model_Dummy.apply_model(self, self.problems)
          return self.solutions
+    
+    #def apply_unit_testing(self):
+
 
 controller = Controller()
 solutions = controller.apply_model()
