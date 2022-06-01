@@ -22,3 +22,7 @@ class Unit_Tests_Dummy(Unit_Tests):
             test_class = Unit_Test(test['test_id'],test['test'])
             self.tests[test['test_id']] = test_class.__dict__
         return self.tests
+    
+    #def apply_unit_tests(self, programs):
+    #    unit_tests = {}
+    #    for i, program in enumerate(programs):
