@@ -13,16 +13,14 @@ class Controller:
     
     def get_problems(self):
         data = Problems_Dummy('./ai_data/problems.jsonl').__dict__
-        self.problems = data['problems']
-        return self.problems
+        return data['problems']
 
     def apply_model(self):
-         self.solutions = Model_Dummy.apply_model(self, self.problems)
-         return self.solutions
+         return Model_Dummy.apply_model(self, self.problems)
     
     #def apply_unit_testing(self):
 
 
 controller = Controller()
-solutions = controller.apply_model()
+solutions = controller.get_problems()
 print(solutions)

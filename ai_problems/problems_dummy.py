@@ -15,7 +15,7 @@ class Problems_Dummy(Problems):
         self.problems = {}
        
         with open(self.path, 'r') as json_file:
-            problems_json = list(json_file)
+            problems_json = json_file.readlines()
         
         for problem_json in problems_json:
             problem = json.loads(problem_json)

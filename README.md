@@ -6,7 +6,6 @@ Proyecto de Inteligencia Artificial en Accenture
 
 - Diseño de la arquitectura.
 
-
 ## Viernes, 27 de mayo 2022
 
 - Preparación del entorno local e instalación de software necesario.
@@ -23,4 +22,6 @@ Proyecto de Inteligencia Artificial en Accenture
 
 ## Miércoles, 1 de junio 2022
 
-- Corrección de adaptadores I/O y métodos abstractos añadidos.
+- Corrección errores generales.
+- Cambios en los flujos del controlador.
+- Introducción Unit Testing.
