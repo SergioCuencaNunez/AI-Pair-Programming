@@ -11,14 +11,14 @@ class Problems_Dummy(Problems):
     def __init__(self, path):
         super().__init__(path)
 
-    def get_problems(self):
-        self.problems = {}
+    def read_problems(self):
+        problems = {}
        
         with open(self.path, 'r') as json_file:
             problems_json = json_file.readlines()
         
         for problem_json in problems_json:
             problem = json.loads(problem_json)
-            problem_class = Problem(problem['task_id'],problem['prompt'],problem['canonical_solution'],problem['entry_point'])
-            self.problems[problem['task_id']] = problem_class.__dict__
-        return self.problems
+            problems[problem['task_id']] = Problem(problem['task_id'], problem['prompt'], problem['canonical_solution'], problem['entry_point'])
+
+        return problems

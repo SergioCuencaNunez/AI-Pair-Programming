@@ -4,7 +4,7 @@ class Problem:
         self.prompt = prompt
         self.canonical_solution = canonical_solution
         self.entry_point = entry_point
-    
+
     def get_task_id(self):
         return self.task_id
 

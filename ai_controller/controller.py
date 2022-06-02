@@ -5,44 +5,25 @@ sys.path.insert(0, BASE)
 from ai_problems.problems_dummy import Problems_Dummy
 from ai_model.model_dummy import Model_Dummy
 from ai_unit_testing.unit_tests_dummy import Unit_Tests_Dummy
+from ai_solutions.solutions_dummy import Solutions_Dummy
+from ai_results.results_dummy import Results_Dummy
+
 
 class Controller:
     def __init__(self):
-        self.problems = self.get_problems()
-        self.solutions = self.apply_model()
-        self.tests = self.get_tests()
-    
-    def get_problems(self):
-        data = Problems_Dummy('./ai_data/problems.jsonl').__dict__
-        return data['problems']
+        self.problems = Problems_Dummy('./ai_data/problems.jsonl')
+        self.model = Model_Dummy()
+        self.unit_tests = Unit_Tests_Dummy('./ai_data/tests.jsonl')
+        self.solutions = Solutions_Dummy()
+        self.results = Results_Dummy()
 
-    def apply_model(self):
-         return Model_Dummy.apply_model(self, self.problems)
-    
-    def get_tests(self):
-        data = Unit_Tests_Dummy('./ai_data/tests.jsonl').__dict__
-        return data['tests']
+        self.model.apply_model(self.problems, self.solutions)
+        self.unit_tests.apply_unit_tests(self.problems, self.solutions, self.results)
 
-    def apply_unit_tests(self):
-        solutions = {}
-        for i, solution in self.solutions.items():
-            completion = (solution["solution"]
-            )
-            solutions[i] = completion
 
-        tests = {}
-        for i, test in self.tests.items():
-            test = (test["test"]
-            )
-            tests[i] = test
+c = Controller()
 
-        programs = {}
-        for i, problem in self.problems.items():
-            check_program = (
-                problem["prompt"] + solutions[i] + "\n" +
-                tests[i] + "\n" +
-                f"check({problem['entry_point']})" + "\n"
-            )
-            programs[i] = check_program
-        
-        return Unit_Tests_Dummy.apply_unit_tests(self, programs, self.tests)
+print(c.problems.get_problems())
+print(c.unit_tests.get_tests())
+print(c.solutions.get_solutions())
+print(c.results.get_results())

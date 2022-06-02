@@ -3,8 +3,11 @@ from abc import abstractmethod
 class Problems:
     def __init__(self, path):
         self.path = path
-        self.problems = self.get_problems()
+        self.problems = self.read_problems()
+
+    def get_problems(self):
+        return self.problems
 
     @abstractmethod
-    def get_problems(self):
+    def read_problems(self):
         raise NotImplementedError()

@@ -5,14 +5,15 @@ sys.path.insert(0, BASE)
 
 from ai_model.model import Model
 
+
 class Model_Dummy(Model):
-    def __init__(self, conf):
+    def __init__(self, conf=None):
         super().__init__(conf)
     
-    def apply_model(self, problems):
-        solutions = {}
-        for i, problem in problems.items():
-            canonical_solution = {}
-            canonical_solution["solution"] = problem['canonical_solution']
-            solutions[i] = canonical_solution
-        return solutions
+    def apply_model(self, problems, solutions):
+        for problem_id, problem in problems.get_problems().items():
+            # llamada al modelo
+            solution = problem.get_canonical_solution()
+
+            for i in range(10):
+                solutions.add_problem_solution(problem_id, solution)

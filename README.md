@@ -22,6 +22,6 @@ Proyecto de Inteligencia Artificial en Accenture
 
 ## Miércoles, 1 de junio 2022
 
-- Corrección errores generales.
+- Corrección errores generales y uso de métodos de clase
 - Cambios en los flujos del controlador.
 - Implementación básica de Unit Testing.
