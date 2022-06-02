@@ -1,7 +1,6 @@
 from ai_results.results import Results
 from ai_results.result import Result
 
-
 class Results_Dummy(Results):
     def __init__(self):
         super().__init__()

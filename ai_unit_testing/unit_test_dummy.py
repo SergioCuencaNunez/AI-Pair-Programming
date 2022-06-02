@@ -12,7 +12,7 @@ class Unit_Test_Dummy(Unit_Test):
             f"check({problem.get_entry_point()})" + "\n"
         )
 
-        self.result = self._execute_test(check_program)
+        return self._execute_test(check_program)
 
     def _execute_test(self, program):
         try:
