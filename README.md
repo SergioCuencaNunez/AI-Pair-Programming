@@ -30,3 +30,8 @@ Proyecto de Inteligencia Artificial en Accenture
 ## Jueves, 2 de junio 2022
 
 - Actualización de diagramas de flujo y de ejecución
+
+## Viernes, 3 de junio 2022
+
+- Código probado en Docker
+- Prueba de modelos huggingface en la V100 del entorno AWS
