@@ -22,16 +22,23 @@ Proyecto de Inteligencia Artificial en Accenture
 
 ## Miércoles, 1 de junio 2022
 
-- Corrección errores generales y uso de métodos de clase
+- Corrección errores generales y uso de métodos de clase.
 - Clases de soluciones y resultados añadidas.
 - Cambios en los flujos del controlador.
 - Implementación básica de Unit Testing.
 
 ## Jueves, 2 de junio 2022
 
-- Actualización de diagramas de flujo y de ejecución
+- Actualización de diagramas de flujo y de ejecución.
 
 ## Viernes, 3 de junio 2022
 
-- Código probado en Docker
-- Prueba de modelos huggingface en la V100 del entorno AWS
+- Código probado en Docker.
+- Prueba de modelos huggingface en la V100 del entorno AWS.
+
+## Lunes, 6 de junio 2022
+
+- Utilización de la GPU de la VM para ejecutar los modelos.
+- Visualizar el rendimiento de la GPU con varios modelos.
+- Prueba del modelo en el Docker de la VM.
+- Prueba de Docker junto con la GPU en la VM.
