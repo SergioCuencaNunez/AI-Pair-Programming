@@ -41,4 +41,7 @@ Proyecto de Inteligencia Artificial en Accenture
 - Utilización de la GPU de la VM para ejecutar los modelos.
 - Visualizar el rendimiento de la GPU con varios modelos.
 - Prueba del modelo en el Docker de la VM.
-- Prueba de Docker junto con la GPU en la VM.
+
+## Martes, 7 de junio 2022
+
+- Implementación de métricas.
