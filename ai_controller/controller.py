@@ -7,6 +7,7 @@ from ai_model.model_dummy import Model_Dummy
 from ai_unit_testing.unit_tests_dummy import Unit_Tests_Dummy
 from ai_solutions.solutions_dummy import Solutions_Dummy
 from ai_results.results_dummy import Results_Dummy
+from ai_metrics.metrics import Metrics
 
 class Controller:
     def __init__(self):
@@ -15,6 +16,8 @@ class Controller:
         self.unit_tests = Unit_Tests_Dummy('./ai_data/tests.jsonl')
         self.solutions = Solutions_Dummy()
         self.results = Results_Dummy()
+        self.metrics = Metrics('./metrics.xlsx')
 
         self.model.apply_model(self.problems, self.solutions)
         self.unit_tests.apply_unit_tests(self.problems, self.solutions, self.results)
+        self.metrics.get_metrics(self.problems, self.solutions, self.results)

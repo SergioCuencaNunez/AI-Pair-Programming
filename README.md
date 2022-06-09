@@ -48,3 +48,7 @@ Proyecto de Inteligencia Artificial en Accenture
 ## Miércoles, 8 de junio 2022
 
 - Implementación de métricas.
+
+## Jueves, 9 de junio 2022
+
+- Cambios y correciones en la implementación de métricas.
