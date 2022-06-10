@@ -52,3 +52,8 @@ Proyecto de Inteligencia Artificial en Accenture
 ## Jueves, 9 de junio 2022
 
 - Cambios y correciones en la implementación de métricas.
+
+## Viernes, 10 de junio 2022
+
+- Documentación sobre propiedad intelectual, derechos, términos de uso.
+- Elaboración de información acerca de otros idiomas admitidos.
