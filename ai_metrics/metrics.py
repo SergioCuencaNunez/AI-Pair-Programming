@@ -24,6 +24,7 @@ class Metrics:
             metrics_list.append(problem.__dict__)
         
         for problem in metrics_list:
+            #Intentar optimizar para no recorrer todas las soluciones
             for problem_id, problem_solutions in solutions.get_solutions().items(): 
                 if problem_id == problem["task_id"]:             
                     problem["canonical_solution"] =  list(map(lambda solution: solution.get_solution(), solutions.get_problem_solutions(problem_id)))
@@ -40,7 +41,6 @@ class Metrics:
                     problem["pass@" + str(i)] = "KO"
     
     def export_metrics(self):
-        self.pass_at_k()
         df = pd.DataFrame.from_dict(self.metrics)
         df.to_excel(self.path)
         wb = xl.load_workbook(self.path)
