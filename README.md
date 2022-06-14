@@ -57,3 +57,14 @@ Proyecto de Inteligencia Artificial en Accenture
 
 - Documentación sobre propiedad intelectual, derechos, términos de uso.
 - Elaboración de información acerca de otros idiomas admitidos.
+
+## Lunes, 13 de junio 2022
+
+- Comparación y criterios de selección de diferentes modelos.
+
+## Martes, 14 de junio 2022
+
+- Prueba de modelos elegidos en la RAM de la VM.
+
+
+
