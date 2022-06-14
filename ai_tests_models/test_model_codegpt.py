@@ -1,15 +1,24 @@
 from transformers import pipeline, set_seed
-import json
+import time
 
-generator = pipeline('text-generation', model='microsoft/CodeGPT-small-py', device=0)
-generator_adapted = pipeline('text-generation', model='microsoft/CodeGPT-small-py-adaptedGPT2', device=0)
+t1 = round(time.time() * 1000)
+generator = pipeline('text-generation', model='microsoft/CodeGPT-small-py')
+#generator_adapted = pipeline('text-generation', model='microsoft/CodeGPT-small-py-adaptedGPT2')
+t2 = round(time.time() * 1000)
+
+print(f"Tiempo en cargar el modelo: {t2-t1}")
 
 set_seed(42)
-text = "def sum_tree(root): '''Given the root of a tree, return the sum of all its nodes'''"
+file = open('./ai_tests_models/prompts.txt', 'r')
+lines = file.readlines()
 
-response = generator(text, max_length=200, num_return_sequences=1)
-responses_a = generator_adapted(text, max_length=200, num_return_sequences=10)
-
-print(response)
-for response_a in responses_a:
-    print(response_a)
+t3 = round(time.time() * 1000)
+for line in lines:
+    t5 = round(time.time() * 1000)
+    res = generator(line, max_length=200, num_return_sequences=1)
+    #res = generator_adapted(line, max_length=200, num_return_sequences=1)
+    t6 = round(time.time() * 1000)
+    print(res)
+    print(f"Tiempo en resolver un problema: {t6-t5}")
+t4 = round(time.time() * 1000)
+print(f"Tiempo en resolver todos los problemas: {t4-t3}")
