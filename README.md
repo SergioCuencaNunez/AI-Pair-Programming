@@ -65,4 +65,4 @@ Proyecto de Inteligencia Artificial en Accenture
 ## Martes, 14 de junio 2022
 
 - Prueba de modelos elegidos y generación correcta de soluciones.
-- Implementación de base de datos SQL de prueba con docker.
+- Implementación de base de datos SQL de prueba con Docker.
