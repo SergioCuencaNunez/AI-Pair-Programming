@@ -1,10 +1,14 @@
 from transformers import AutoModel, AutoTokenizer, T5Tokenizer, T5ForConditionalGeneration
 import time
 
+t1 = round(time.time() * 1000)
 tokenizer = T5Tokenizer.from_pretrained("tscholak/cxmefzzi")
 model = T5ForConditionalGeneration.from_pretrained("tscholak/cxmefzzi")
+t2 = round(time.time() * 1000)
 
-file = open('./ai_tests_models/prompts.txt', 'r')
+print(f"Tiempo en cargar el modelo: {t2-t1}")
+
+file = open('./queries.txt', 'r')
 lines = file.readlines()
 
 t3 = round(time.time() * 1000)

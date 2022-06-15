@@ -1,0 +1,4 @@
+"How many orders have products that their prices sum up to 100 or more? | sales | orders : order_id | order_product : order_id, product_id | product : product_id, price"
+"How many orders have products that their prices sum up to 100 or more? | sales | orders : order_id | order_product : order_id, product_id | product : product_id, price"
+"How many orders have products that their prices sum up to 100 or more? | sales | orders : order_id | order_product : order_id, product_id | product : product_id, price"
+"How many orders have products that their prices sum up to 100 or more? | sales | orders : order_id | order_product : order_id, product_id | product : product_id, price"

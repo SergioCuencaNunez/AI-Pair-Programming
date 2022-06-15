@@ -6,7 +6,7 @@ tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-j-6B")
 model = AutoModelForCausalLM.from_pretrained("EleutherAI/gpt-j-6B")
 t2 = round(time.time() * 1000)
 
-file = open('./ai_tests_models/prompts.txt', 'r')
+file = open('./prompts.txt', 'r')
 lines = file.readlines()
 
 t3 = round(time.time() * 1000)
