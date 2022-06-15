@@ -1,47 +1,23 @@
-# Download base image ubuntu 20.04
-FROM ubuntu:20.04
+# For more information, please refer to https://aka.ms/vscode-docker-python
+FROM python:3.8-slim
 
-# LABEL about the custom image
-LABEL maintainer="admin@sysadminjournal.com"
-LABEL version="0.1"
-LABEL description="This is custom Docker Image for \
-the PHP-FPM and Nginx Services."
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
 
-# Disable Prompt During Packages Installation
-ARG DEBIAN_FRONTEND=noninteractive
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED=1
 
-# Update Ubuntu Software repository
-RUN apt update
+# Install pip requirements
+COPY requirements.txt .
+RUN python -m pip install -r requirements.txt
 
-# Install nginx, php-fpm and supervisord from ubuntu repository
-RUN apt install -y nginx php-fpm supervisor && \
-    rm -rf /var/lib/apt/lists/* && \
-    apt clean
-    
-# Define the ENV variable
-ENV nginx_vhost /etc/nginx/sites-available/default
-ENV php_conf /etc/php/7.4/fpm/php.ini
-ENV nginx_conf /etc/nginx/nginx.conf
-ENV supervisor_conf /etc/supervisor/supervisord.conf
+WORKDIR /app
+COPY . /app
 
-# Enable PHP-fpm on nginx virtualhost configuration
-COPY default ${nginx_vhost}
-RUN sed -i -e 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' ${php_conf} && \
-    echo "\ndaemon off;" >> ${nginx_conf}
-    
-# Copy supervisor configuration
-COPY supervisord.conf ${supervisor_conf}
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
+RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
+USER appuser
 
-RUN mkdir -p /run/php && \
-    chown -R www-data:www-data /var/www/html && \
-    chown -R www-data:www-data /run/php
-    
-# Volume configuration
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
-
-# Copy start.sh script and define default command for the container
-COPY start.sh /start.sh
-CMD ["./start.sh"]
-
-# Expose Port for the Application 
-EXPOSE 80 443
+# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+CMD ["python", "ai_controller/controller.py"]

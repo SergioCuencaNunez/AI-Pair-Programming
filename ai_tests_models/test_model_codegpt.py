@@ -9,7 +9,7 @@ t2 = round(time.time() * 1000)
 print(f"Tiempo en cargar el modelo: {t2-t1}")
 
 set_seed(42)
-file = open('./ai_tests_models/prompts.txt', 'r')
+file = open('./prompts.txt', 'r')
 lines = file.readlines()
 
 t3 = round(time.time() * 1000)
@@ -17,8 +17,8 @@ for line in lines:
     t5 = round(time.time() * 1000)
     res = generator(line, max_length=200, num_return_sequences=1)
     #res = generator_adapted(line, max_length=200, num_return_sequences=1)
-    t6 = round(time.time() * 1000)
     print(res)
+    t6 = round(time.time() * 1000)
     print(f"Tiempo en resolver un problema: {t6-t5}")
 t4 = round(time.time() * 1000)
 print(f"Tiempo en resolver todos los problemas: {t4-t3}")
