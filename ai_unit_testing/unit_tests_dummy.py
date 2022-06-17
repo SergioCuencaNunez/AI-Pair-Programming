@@ -5,8 +5,8 @@ BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE)
 
 from ai_unit_testing.unit_tests import Unit_Tests
-from ai_unit_testing.unit_test_dummy import Unit_Test_Dummy
-
+#from ai_unit_testing.unit_test_dummy import Unit_Test_Dummy
+from ai_unit_testing.unit_test_sql import Unit_Test_SQL
 
 class Unit_Tests_Dummy(Unit_Tests):
     def __init__(self, path):
@@ -20,7 +20,7 @@ class Unit_Tests_Dummy(Unit_Tests):
         
         for test_json in tests_json:
             test = json.loads(test_json)
-            self.tests[test['test_id']] = Unit_Test_Dummy(test['test_id'], test['test'])
+            self.tests[test['test_id']] = Unit_Test_SQL(test['test_id'], test['test'])
 
         return self.tests
 

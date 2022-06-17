@@ -13,7 +13,7 @@ class Metrics:
         for problem in metrics_list:
             self.metrics[problem["task_id"]] = problem
         
-        self.pass_at_k()
+        #self.pass_at_k()
 
         return self.metrics
 
@@ -29,6 +29,7 @@ class Metrics:
                 if problem_id == problem["task_id"]:             
                     problem["canonical_solution"] =  list(map(lambda solution: solution.get_solution(), solutions.get_problem_solutions(problem_id)))
                     problem["result"] =  list(map(lambda result: result.get_result(), results.get_problem_results(problem_id)))
+                    problem.pop("entry_point")
 
         return metrics_list
     
@@ -41,7 +42,7 @@ class Metrics:
                     problem["pass@" + str(i)] = "KO"
     
     def export_metrics(self):
-        df = pd.DataFrame.from_dict(self.metrics)
+        df = pd.DataFrame.from_dict(self.metrics, orient='index')
         df.to_excel(self.path)
         wb = xl.load_workbook(self.path)
         ws = wb.active

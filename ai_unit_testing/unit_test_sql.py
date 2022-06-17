@@ -1,7 +1,7 @@
 from ai_unit_testing.unit_test import Unit_Test
 import sqlite3
 
-class Unit_Test_Dummy(Unit_Test):
+class Unit_Test_SQL(Unit_Test):
     def __init__(self, problem_id, test):
         super().__init__(problem_id, test)
 
@@ -13,10 +13,10 @@ class Unit_Test_Dummy(Unit_Test):
             conn = sqlite3.connect(database)
             cur = conn.cursor()
 
-            cur.execute(model_solution)
+            cur.execute(model_solution.lower())
             model_solution_res = cur.fetchall()
 
-            cur.execute(canonical_solution)
+            cur.execute(canonical_solution.lower())
             canonical_solution_res = cur.fetchall()
 
             if(model_solution_res == canonical_solution_res):
