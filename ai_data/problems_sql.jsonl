@@ -1,0 +1,12 @@
+{"task_id": "test_sql/0", "prompt": "How many products do we have? | products : product_id, country, price", "canonical_solution": "SELECT COUNT(*) FROM PRODUCTS", "entry_point": ""}
+{"task_id": "test_sql/1", "prompt": "What is the total number of orders? | orders : order_id, description", "canonical_solution": "SELECT COUNT(*) FROM ORDERS", "entry_point": ""}
+{"task_id": "test_sql/2", "prompt": "What is the average , minimum , and maximum price of all Spanish products? | products : product_id, country, price", "canonical_solution": "SELECT AVG(PRICE), MIN(PRICE), MAX(PRICE) FROM PRODUCTS WHERE COUNTRY = 'SPAIN'", "entry_point": ""}
+{"task_id": "test_sql/3", "prompt": "Show all countries and the number of products in each country | products", "canonical_solution": "SELECT COUNTRY, COUNT(*) FROM PRODUCTS GROUP BY COUNTRY", "entry_point": ""}
+{"task_id": "test_sql/4", "prompt": "How many sales are there in store STORE1? | sales: sale_id, product_id, customer_id, quantity, store", "canonical_solution": "SELECT STORE, COUNT(*) FROM SALES WHERE BY STORE = 'STORE1'", "entry_point": ""}
+{"task_id": "test_sql/5", "prompt": "List all names by customers above the average age | customers: customer_id, name, surname, age", "canonical_solution": "SELECT NAME FROM CUSTOMERS WHERE AGE > (SELECT AVG(AGE) FROM CUSTOMERS)", "entry_point": ""}
+{"task_id": "test_sql/6", "prompt": "How many orders have products that their prices sum up to 100 or more? | sales: sale_id, product_id, customer_id, quantity, store | orders : order_id, description | order_product : order_id, product_id, price | products : product_id, country, price"
+", "canonical_solution": "SELECT COUNT(*) FROM ORDERS AS T1 JOIN ORDER_PRODUCT AS T2 ON T1.ORDER_ID = T2.ORDER_ID JOIN PRODUCT AS T3 ON T2.PRODUCT = T3.PRODUCT_ID WHERE T3.PRICE >= 100", "entry_point": ""}
+{"task_id": "test_sql/7", "prompt": "For all sales , what is the most frequent store? | sales: sale_id, product_id, customer_id, quantity, store"
+, "canonical_solution": "SELECT STORE, COUNT(STORE) FROM SALES GROUP BY STORE ORDER BY COUNT(STORE) DESC LIMIT 1", "entry_point": ""}
+{"task_id": "test_sql/8", "prompt": "Show the sale that has the spanish product with higher quantity | sales: sale_id, product_id, customer_id, quantity, store |  orders : order_id, description | order_product : order_id, product_id, price | products : product_id, country, price"
+, "canonical_solution": "SELECT SALE_ID FROM CUSTOMERS WHERE AGE > (SELECT AVG(AGE) FROM CUSTOMERS)", "entry_point": ""}
