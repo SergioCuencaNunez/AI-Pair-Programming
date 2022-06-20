@@ -12,8 +12,8 @@ class Model_Dummy(Model):
     def apply_model(self, problems, solutions):
         from transformers import pipeline, set_seed
         set_seed(42)
+        generator = pipeline('text-generation', model='microsoft/CodeGPT-small-py')
         for problem_id, problem in problems.get_problems().items():
-            generator = pipeline('text-generation', model='microsoft/CodeGPT-small-py-adaptedGPT2')
-            solution = generator(problem.get_prompt(), max_length=200, num_return_sequences=1)
-            print(solution)
-            solutions.add_problem_solution(problem_id, solution)
+            solution_array = generator(problem.get_prompt(), max_length=200, num_return_sequences=1)
+            #print(solution)
+            solutions.add_problem_solution(problem_id, solution_array[0]['generated_text'])
