@@ -73,3 +73,12 @@ Proyecto de Inteligencia Artificial en Accenture
 ## Jueves, 16 de junio 2022
 
 - Implementación de base de datos SQL de prueba en la VM.
+
+## Viernes, 17 de junio 2022
+
+- Implementación de ejeplos y problemas SQL con solución.
+- Prueba de la arquitectura con modelo SQL.
+
+## Lunes, 20 de junio 2022
+
+- Implementación de los diferentes modelos en la arquitectura desarrollada.
