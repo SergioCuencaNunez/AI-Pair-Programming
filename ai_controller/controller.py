@@ -3,8 +3,8 @@ BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE)
 
 from ai_problems.problems_dummy import Problems_Dummy
-#from ai_model.model_dummy import Model_Dummy
-from ai_model.model_sql import Model_SQL
+from ai_model.model_dummy import Model_Dummy
+#from ai_model.model_sql import Model_SQL
 from ai_unit_testing.unit_tests_dummy import Unit_Tests_Dummy
 from ai_solutions.solutions_dummy import Solutions_Dummy
 from ai_results.results_dummy import Results_Dummy
@@ -13,7 +13,7 @@ from ai_metrics.metrics import Metrics
 class Controller:
     def __init__(self):
         self.problems = Problems_Dummy('./ai_data/problems_sql.jsonl')
-        self.model = Model_SQL()
+        self.model = Model_Dummy()
         self.unit_tests = Unit_Tests_Dummy('./ai_data/tests_sql.jsonl')
         self.solutions = Solutions_Dummy()
         self.results = Results_Dummy()
