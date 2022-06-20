@@ -6,9 +6,8 @@ sys.path.insert(0, BASE)
 from ai_model.model import Model
 
 class Model_Dummy(Model):
-    def __init__(self, conf=None):
+    def __init__(self, conf="from transformers import pipeline, set_seed"):
         super().__init__(conf)
-        from transformers import pipeline, set_seed
 
     def apply_model(self, problems, solutions):
         for problem_id, problem in problems.get_problems().items():

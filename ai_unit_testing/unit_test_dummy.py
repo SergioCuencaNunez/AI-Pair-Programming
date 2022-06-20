@@ -16,7 +16,8 @@ class Unit_Test_Dummy(Unit_Test):
 
     def _execute_test(self, program):
         try:
-            exec(program)
+            #exec(program)
+            print(program)
             return True
         except BaseException:
             return False
