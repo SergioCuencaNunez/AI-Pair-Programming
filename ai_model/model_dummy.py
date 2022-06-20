@@ -6,12 +6,14 @@ sys.path.insert(0, BASE)
 from ai_model.model import Model
 
 class Model_Dummy(Model):
-    def __init__(self, conf="from transformers import pipeline, set_seed"):
+    def __init__(self, conf=None):
         super().__init__(conf)
 
     def apply_model(self, problems, solutions):
+        from transformers import pipeline, set_seed
+        set_seed(42)
         for problem_id, problem in problems.get_problems().items():
-            generator = pipeline('text-generation', model='microsoft/CodeGPT-small-py')
-            solution = generator(problem.get_prompt(), max_length=200, num_return_sequences=5)
+            generator = pipeline('text-generation', model='microsoft/CodeGPT-small-py-adaptedGPT2')
+            solution = generator(problem.get_prompt(), max_length=200, num_return_sequences=1)
             print(solution)
             solutions.add_problem_solution(problem_id, solution)
