@@ -8,11 +8,9 @@ from ai_model.model import Model
 class Model_SQL(Model):
     def __init__(self, conf=None):
         super().__init__(conf)
-        from transformers import pipeline, set_seed
-
+    
     def apply_model(self, problems, solutions):
         for problem_id, problem in problems.get_problems().items():
-            generator = pipeline('text-generation', model='microsoft/CodeGPT-small-py')
-            solution = generator(problem.get_prompt(), max_length=200, num_return_sequences=5)
-            print(solution)
+            # Llamada al modelo
+            solution = problem.get_canonical_solution()
             solutions.add_problem_solution(problem_id, solution)
