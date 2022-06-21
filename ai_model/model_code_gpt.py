@@ -5,7 +5,7 @@ sys.path.insert(0, BASE)
 
 from ai_model.model import Model
 
-class Model_Dummy(Model):
+class Model_CodeGPT(Model):
     def __init__(self, conf=None):
         super().__init__(conf)
 
