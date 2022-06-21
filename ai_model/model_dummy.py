@@ -15,5 +15,4 @@ class Model_Dummy(Model):
         generator = pipeline('text-generation', model='microsoft/CodeGPT-small-py')
         for problem_id, problem in problems.get_problems().items():
             solution_array = generator(problem.get_prompt(), max_length=200, num_return_sequences=1)
-            #print(solution)
             solutions.add_problem_solution(problem_id, solution_array[0]['generated_text'])
