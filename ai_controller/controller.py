@@ -3,7 +3,8 @@ BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE)
 
 from ai_problems.problems_dummy import Problems_Dummy
-from ai_model.model_code_gpt import Model_CodeGPT
+from ai_model.model_gpt_neo import Model_GPT_Neo
+#from ai_model.model_codegpt import Model_CodeGPT
 #from ai_model.model_sql import Model_SQL
 from ai_unit_testing.unit_tests_dummy import Unit_Tests_Dummy
 from ai_solutions.solutions_dummy import Solutions_Dummy
@@ -13,7 +14,7 @@ from ai_metrics.metrics import Metrics
 class Controller:
     def __init__(self):
         self.problems = Problems_Dummy('./ai_data/problems.jsonl')
-        self.model = Model_CodeGPT()
+        self.model = Model_GPT_Neo()
         self.unit_tests = Unit_Tests_Dummy('./ai_data/tests.jsonl')
         self.solutions = Solutions_Dummy()
         self.results = Results_Dummy()
