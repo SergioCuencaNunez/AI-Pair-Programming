@@ -76,9 +76,24 @@ Proyecto de Inteligencia Artificial en Accenture
 
 ## Viernes, 17 de junio 2022
 
-- Implementación de ejeplos y problemas SQL con solución.
+- Implementación de ejemplos y problemas SQL con solución.
 - Prueba de la arquitectura con modelo SQL.
 
 ## Lunes, 20 de junio 2022
 
-- Implementación de los diferentes modelos en la arquitectura desarrollada.
+- Traducción de problemas a español.
+- Implementación del modelo CodeGPT en la arquitectura desarrollada.
+
+## Martes, 21 de junio 2022
+
+- Correción de la implementación del modelo CodeGPT.
+- Descarga de pesos del modelo GPT Neo de 2.7Billones para hacer fine-tuning.
+
+## Miércoles, 22 de junio 2022
+
+- Implementación del modelo GPT Neo en la arquitectura desarrollada.
+
+## Jueves, 23 de junio 2022
+
+- Correción de la implementación del modelo GPT Neo.
+- Adaptación de los problemas de ejemplo y de la clase problemas para los nuevos modelos.
