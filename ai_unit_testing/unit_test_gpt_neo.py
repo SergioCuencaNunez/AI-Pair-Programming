@@ -1,7 +1,7 @@
 from ai_unit_testing.unit_test import Unit_Test
 
 
-class Unit_Test_Dummy(Unit_Test):
+class Unit_Test_GPT_Neo(Unit_Test):
     def __init__(self, problem_id, test):
         super().__init__(problem_id, test)
 

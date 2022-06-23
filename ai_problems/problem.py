@@ -1,6 +1,7 @@
 class Problem:
-    def __init__(self, task_id, prompt, canonical_solution, entry_point):
+    def __init__(self, task_id, question, prompt, canonical_solution, entry_point):
         self.task_id = task_id
+        self.question = question
         self.prompt = prompt
         self.canonical_solution = canonical_solution
         self.entry_point = entry_point
@@ -8,6 +9,9 @@ class Problem:
     def get_task_id(self):
         return self.task_id
 
+    def get_question(self):
+        return self.prompt
+    
     def get_prompt(self):
         return self.prompt
 
@@ -19,6 +23,9 @@ class Problem:
     
     def set_task_id(self, value):
         self.task_id = value
+
+    def set_question(self, value):
+        self.question = value
 
     def set_prompt(self, value):
         self.prompt = value
