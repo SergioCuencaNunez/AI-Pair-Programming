@@ -10,7 +10,7 @@ class Problem:
         return self.task_id
 
     def get_question(self):
-        return self.prompt
+        return self.question
     
     def get_prompt(self):
         return self.prompt
