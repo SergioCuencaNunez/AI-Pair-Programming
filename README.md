@@ -97,3 +97,16 @@ Proyecto de Inteligencia Artificial en Accenture
 
 - Correción de la implementación del modelo GPT Neo.
 - Adaptación de los problemas de ejemplo y de la clase problemas para los nuevos modelos.
+
+## Viernes, 24 de junio 2022
+
+- Búsqueda de ejemplos de proyectos empresariales desarrollados con python para probar la arquitectura.
+
+## Lunes, 27 de junio 2022
+
+- Continuación de la búsqueda de ejemplos de proyectos empresariales desarrollados con python más sencillos con implementación de testing.
+
+## Martes, 28 de junio 2022
+
+- Continuación de la búsqueda de ejemplos de proyectos empresariales desarrollados con python sencillos con implementación de testing.
+- Búsqueda de ejemplos de proyectos empresariales desarrollados con SQL y ver cómo implementar el testing.
