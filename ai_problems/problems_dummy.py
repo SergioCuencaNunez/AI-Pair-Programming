@@ -19,6 +19,6 @@ class Problems_Dummy(Problems):
         
         for problem_json in problems_json:
             problem = json.loads(problem_json)
-            problems[problem['task_id']] = Problem(problem['task_id'], problem['prompt'], problem['canonical_solution'], problem['entry_point'])
+            problems[problem['task_id']] = Problem(problem['task_id'], problem['question'], problem['prompt'], problem['canonical_solution'], problem['entry_point'])
 
         return problems
