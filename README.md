@@ -110,3 +110,7 @@ Proyecto de Inteligencia Artificial en Accenture
 
 - Continuación de la búsqueda de ejemplos de proyectos empresariales desarrollados con python sencillos con implementación de testing.
 - Búsqueda de ejemplos de proyectos empresariales desarrollados con SQL y ver cómo implementar el testing.
+
+## Miércoles, 29 de junio 2022
+
+- Implementación y adaptación del nuevo conjunto de datos para la arquitectura diseñada.
