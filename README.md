@@ -114,3 +114,10 @@ Proyecto de Inteligencia Artificial en Accenture
 ## Miércoles, 29 de junio 2022
 
 - Implementación y adaptación del nuevo conjunto de datos para la arquitectura diseñada.
+
+## Jueves, 30 de junio 2022
+
+- Continuación de la implementación y adaptación del nuevo conjunto de datos para la arquitectura diseñada.
+- Implementación del modelo Codex en la arquitectura desarrollada.
+- Documentación de resultados obtenidos por los tres modelos diferentes.
+
