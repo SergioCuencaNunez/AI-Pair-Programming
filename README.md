@@ -121,3 +121,9 @@ Proyecto de Inteligencia Artificial en Accenture
 - Implementación del modelo Codex en la arquitectura desarrollada.
 - Documentación de resultados obtenidos por los tres modelos diferentes.
 
+## Viernes, 1 de julio 2022
+
+- Docuementación de resultados de los modelos obtenidos con código simple .
+- Actualización de las clases de Unit Testing para añadir Mocks.
+
+

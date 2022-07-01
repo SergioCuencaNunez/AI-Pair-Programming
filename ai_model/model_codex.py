@@ -1,4 +1,4 @@
-import sys,os
+import sys,os, re
 import openai
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE)
@@ -10,17 +10,17 @@ class Model_Codex(Model):
         super().__init__(conf)
 
     def apply_model(self, problems, solutions):
-        openai.api_key = "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"
+        openai.api_key = "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"
         for problem_id, problem in problems.get_problems().items():
             response = openai.Completion.create(
                 engine = "code-davinci-002",
                 prompt = problem.get_question() + problem.get_prompt(),
-                temperature = 0,
+                temperature = 0.6,
                 max_tokens = 1500,
-                top_p = 1,
+                top_p = 0.95,
+                n = 10,
                 frequency_penalty = 0,
                 presence_penalty = 0)
             #print(response['choices'][0]['text'])
-            #for x in response['choices'][0]['text']:
-             #   print(x)
-            solutions.add_problem_solution(problem_id, response['choices'][0]['text'])
+            for x in response['choices']:
+                solutions.add_problem_solution(problem_id, re.split(r"^\n", x['text'])[0])

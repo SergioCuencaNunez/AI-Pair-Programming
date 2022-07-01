@@ -14,12 +14,12 @@ from ai_metrics.metrics import Metrics
 
 class Controller:
     def __init__(self):
-        self.problems = Problems_Dummy('./ai_data/problems.jsonl')
+        self.problems = Problems_Dummy('./ai_data/problems_test.jsonl')
         self.model = Model_Codex()
-        self.unit_tests = Unit_Tests_Dummy('./ai_data/tests.jsonl')
+        self.unit_tests = Unit_Tests_Dummy('./ai_data/tests_test.jsonl')
         self.solutions = Solutions_Dummy()
         self.results = Results_Dummy()
-        self.metrics = Metrics('./metrics.xlsx')
+        self.metrics = Metrics('./metrics_codex.xlsx')
 
         self.model.apply_model(self.problems, self.solutions)
         self.unit_tests.apply_unit_tests(self.problems, self.solutions, self.results)

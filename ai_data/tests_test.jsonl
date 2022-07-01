@@ -1,1 +1,3 @@
-{"test_id": "test/0", "test": "def test_create_route_domain_object():\n        filepath = "files/input-file-test.csv"\n        route_domain = RouteDomain(filepath)\n         assert route_domain.file == 'files/input-file-test.csv'\n"}
+{"test_id": "test/0", "file": "tests_python", "function": "test0"}
+{"test_id": "test/1", "file": "tests_python", "function": "test1"}
+{"test_id": "test/2", "file": "tests_python", "function": "test2"}

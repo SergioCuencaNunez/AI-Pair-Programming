@@ -22,7 +22,7 @@ class Unit_Tests_Dummy(Unit_Tests):
         
         for test_json in tests_json:
             test = json.loads(test_json)
-            self.tests[test['test_id']] = Unit_Test_Dummy(test['test_id'], test['test'])
+            self.tests[test['test_id']] = Unit_Test_Dummy(test['test_id'], test['file'], test['function'])
 
         return self.tests
 
