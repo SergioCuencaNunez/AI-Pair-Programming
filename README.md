@@ -123,7 +123,8 @@ Proyecto de Inteligencia Artificial en Accenture
 
 ## Viernes, 1 de julio 2022
 
-- Docuementación de resultados de los modelos obtenidos con código simple .
+- Documentación de resultados de los modelos obtenidos con código simple .
 - Actualización de las clases de Unit Testing para añadir Mocks.
+- Cambio de formato en los datos de testing.
 
 
