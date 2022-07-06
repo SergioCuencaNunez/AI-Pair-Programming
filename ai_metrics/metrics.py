@@ -13,7 +13,7 @@ class Metrics:
         for problem in metrics_list:
             self.metrics[problem["task_id"]] = problem
         
-        #self.pass_at_k()
+        self.pass_at_k()
 
         return self.metrics
 
@@ -27,9 +27,9 @@ class Metrics:
             #Intentar optimizar para no recorrer todas las soluciones
             for problem_id, problem_solutions in solutions.get_solutions().items(): 
                 if problem_id == problem["task_id"]:             
-                    problem["canonical_solution"] =  list(map(lambda solution: solution.get_solution(), solutions.get_problem_solutions(problem_id)))
+                    problem["solutions"] =  list(map(lambda solution: solution.get_solution(), solutions.get_problem_solutions(problem_id)))
                     problem["result"] =  list(map(lambda result: result.get_result(), results.get_problem_results(problem_id)))
-                    problem.pop("entry_point")
+                    #problem.pop("entry_point")
 
         return metrics_list
     

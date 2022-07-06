@@ -1,4 +1,5 @@
 import importlib
+import random as rm
 
 from ai_unit_testing.unit_test import Unit_Test
 
@@ -23,10 +24,13 @@ class Unit_Test_Dummy(Unit_Test):
 
         try:
             test(program)
-            #print(program)
             return True
         except Exception as e:
             print(e)
-            print(program)
+            #print(program)
+            a = rm.randint(1, 1000)
+            with open(f"{a}","w") as f:
+                f.write(program)
+            print("-"*60)
             print("\n"*5)
             return False

@@ -127,4 +127,15 @@ Proyecto de Inteligencia Artificial en Accenture
 - Actualización de las clases de Unit Testing para añadir Mocks.
 - Cambio de formato en los datos de testing.
 
+## Lunes, 4 de julio 2022
 
+- Corrección de enunciados de problemas para una mejor resolución del modelo de Codex.
+- Generación de metricas y observación de errores cometidos por el modelo.
+
+## Martes, 5 de julio 2022
+
+- Corrección de los Mocks implementados para que se utilicen las clases de prueba en el código generado por el modelo.
+- Actualización de la clase del modelo de Codex para limpiar el resultado y ampliar el número de respuestas correctas generadas por el modelo.
+
+## Miércoles, 6 de julio 2022
+ - Limpieza de las diferentes soluciones generadas por Codex para mejorar los resultados.
