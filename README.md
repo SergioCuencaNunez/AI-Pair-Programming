@@ -138,4 +138,21 @@ Proyecto de Inteligencia Artificial en Accenture
 - Actualización de la clase del modelo de Codex para limpiar el resultado y ampliar el número de respuestas correctas generadas por el modelo.
 
 ## Miércoles, 6 de julio 2022
- - Limpieza de las diferentes soluciones generadas por Codex para mejorar los resultados.
+
+- Limpieza de las diferentes soluciones generadas por Codex para mejorar los resultados.
+
+## Jueves, 7 de julio 2022
+
+- Generación de soluciones con el modelo de Codex con ejemplos y códigos más complejos .
+- Adaptación y limpieza de soluciones para corregir falsos negativos de los nuevos problemas.
+
+## Viernes, 8 de julio 2022
+
+- Traducción al español de todos los conjuntos de datos para probar la capacidad del modelo Codex en diferentes idiomas.
+
+## Lunes, 11 de julio 2022
+
+- Documentación de las pruebas realizadas con español e inglés de todos los conjuntos de datos.
+- Pruebas para observar la capacidad del modelo CodeGPT en diferentes idiomas.
+
+
