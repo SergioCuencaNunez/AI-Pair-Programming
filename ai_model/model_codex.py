@@ -10,7 +10,7 @@ class Model_Codex(Model):
         super().__init__(conf)
 
     def apply_model(self, problems, solutions):
-        openai.api_key = "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"
+        openai.api_key = "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"
         for problem_id, problem in problems.get_problems().items():
             response = openai.Completion.create(
                 engine = "code-davinci-002",
@@ -30,12 +30,14 @@ class Model_Codex(Model):
         new_solution = ''
         count = 0
         for line in solution.splitlines(True):
-            if line.startswith('#') or line.startswith('-') or line.startswith('`') or line.startswith('<') or line.startswith('>') or line.startswith('/') or line.startswith('http') or line.startswith('"') or line[0].isupper():
+            if line.startswith('#') or line.startswith('-') or line.startswith('`') or line.startswith('<') or line.startswith('>') or line.startswith('/') or line.startswith('http') or line.startswith('"') or line.startswith('$') or line[0].isupper():
                 continue 
             if re.match("^(def|class) .*", line):
-                count += 1
+                count += 1   
                 if count == 2:
                     break
+            if re.match("^[^\r\n\t\f\v\# ]", line):
+                break
             new_solution += line
             
         return new_solution

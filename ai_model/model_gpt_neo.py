@@ -20,4 +20,19 @@ class Model_GPT_Neo(Model):
             for i in range(10):
                 output_ids = model.generate(input_ids, num_beams = 1, early_stopping = True, max_length = 1024 - len(input_ids), do_sample = True, temperature = 0.6)
                 output_str = tokenizer.decode(output_ids[0])
-                solutions.add_problem_solution(problem_id, output_str)
+                solutions.add_problem_solution(problem_id, self._clean_solution(output_str))
+       
+    def _clean_solution(self, solution):
+        new_solution = ''
+        count = 0
+        solution_cropped, head, tail = solution.partition("ANSWER:\n")
+        for line in solution_cropped.splitlines(True):
+            if line.startswith('#') or line.startswith('-') or line.startswith('`') or line.startswith('<') or line.startswith('>') or line.startswith('/') or line.startswith('http') or line.startswith('"') or line[0].isupper():
+                continue 
+            if re.match("^(def|class) .*", line):
+                count += 1
+                if count == 2:
+                    break
+            new_solution += line
+            
+        return new_solution
