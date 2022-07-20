@@ -1,0 +1,23 @@
+
+def digits(n):
+
+QUESTION:
+"""Given a positive integer n, return the product of the odd digits.
+    Return 0 if all digits are even.
+    For example:
+    digits(1)  == 1
+    digits(4)  == 0
+    digits(235) == 15
+    """
+
+
+def digits(n):
+
+
+Use Call-Based Format
+
+ANSWER:
+def digits(n):
+	return 0 if not n % 2 else \
+		int(str(n)[0]) * int(str(n)[1])
+<|endoftext|>

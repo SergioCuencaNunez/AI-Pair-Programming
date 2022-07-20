@@ -1,0 +1,40 @@
+from flask import Flask ,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+QUESTION:
+Using Flask, define a get method to find a user in the pyMongo mongo db users table using the name and designation attributes given in the query string. Use /user as the HTTP URL.
+from flask import Flask,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+
+Use Call-Based Format
+
+ANSWER:
+from collections import defaultdict
+
+# Create a Flask application object
+flask = Flask()
+
+# A URL to connect to the server
+url = 'http://127.0.0.1'
+
+# Set up default query arguments
+qs = {'__abac': 'true'}
+
+# Set up a resource class to use the RESTful interface
+resource = Api(flask.route('users'), format=jsonify, version='3.6')
+
+# Add a get method to the resource
+def get(username='', password=''):
+	# Here we define a get method to find a user in the pyMongo mongo db users table using  
+	# the name and designation attributes given in the query string.
+	result = resource.get(username, password)
+	if result is not None:
+		return result
+	else:
+		# If the result is None, it means the user name or password is not found.
+		# In that case, we will output an error to the user based on the input provided.
+		# In the case of a missing access level, we will output an error with code 0.
+		result = {'_type': 'NoSuchUser', 'code': 0}
+		return result
+<|endoftext|>

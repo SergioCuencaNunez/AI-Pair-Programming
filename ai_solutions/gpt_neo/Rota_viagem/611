@@ -1,0 +1,93 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Use a function called get_lines to read each line of the file_entity and store it in a variable called data.  Define a new attribute in the class named graph that using the variable data instances a Graph class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+
+	def __init__(self):
+		self.__file_entity = None
+		self.__graph = None
+		
+	def __file_entity(self):
+		if self.__file_entity == None:
+			self.__file_entity = FileCSV
+		return self.__file_entity
+	
+	def __graph(self):
+		if self.__graph == None:
+			self.__graph = Graph
+		return self.__graph
+	
+	def __graph(self, file_entity=None):
+		try:
+			self.__graph(file_entity)
+			return True
+		except FileNotFoundError:
+			return False
+		
+	def read_tsv(self, file_line):
+		return self.__graph(file_entity=self.__file_entity) and FileLine(file_line)
+		
+	def read_tsv(self, file_line):
+		if file_line == '':
+			return ''
+		lines = file_line.split('\n')
+		try:
+			return self.__graph(file_entity=self.__file_entity) and Graph(lines[-1])
+		except FileNotFoundError:
+			return ''
+		
+	def add_node(self, key, value):
+		try:
+			self.__graph(file_entity=self.read_tsv(key))
+			self.__graph(file_entity=self.read_tsv(value))
+		except FileNotFoundError:
+			pass
+		self.__graph.add(key, value)
+
+
+class Graph:
+	def __init__(self, lines):
+		self.__list = []
+		for line in lines:
+			self.__list.append(Line(line))
+
+	def __list(self):
+		return self.__list
+
+	def add_to_list(self, key, value):
+		self.__list.append(value)
+
+	def add(self, key, value, to_list=None):
+		if to_list is None:
+			to_list = []
+		if not to_list:
+			to_list = [value]
+		self.__list.append(to_list)
+		if key in self:
+			if self[key] is not None:
+				self[key].add(value)
+				return True
+			else:
+				self.[key].add(value)
+		else:
+			if self[key] is not None:
+				self[key].add(value)
+				return False
+			else:
+				self[key].add(value)
+
+
+RouteDomain()
+Graph()
+<|endoftext|>

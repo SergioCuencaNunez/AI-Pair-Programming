@@ -1,0 +1,41 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath.
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+
+	def __init__(self):
+		self.files = []
+
+	def add(self, file):
+		self.files.append(file)
+
+	def find(self, file):
+		for f in self.files:
+			if f.endswith(file):
+				return f
+		return False
+
+
+#     def __init__(self):
+#         self.files = []
+
+#     def add(self, file):
+#         self.files.append(file)
+
+#     def find(self, file):
+#         for f in self.files:
+#             if f.endswith(file):
+#                 return f
+#         return False
+<|endoftext|>

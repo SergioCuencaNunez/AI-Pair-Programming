@@ -1,0 +1,28 @@
+from flask import Flask ,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+QUESTION:
+Using Flask, define a class named User with a post method to insert a new user to the pyMongo mongo db users table. Obtain name and designation attributes from the request. Use /user as the HTTP URL.
+from flask import Flask,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+
+Use Call-Based Format
+
+ANSWER:
+class User:
+	def __init__(self, name):
+		self.name = name
+		self.designation = ''
+		self.location = None
+		
+	def post(self, request):
+		self.name = request.get("name")
+		self.designation = request.get("designation")
+		self.location = request.get("location")
+		
+		return self
+		
+	def get_location(self):
+		return self.location
+<|endoftext|>

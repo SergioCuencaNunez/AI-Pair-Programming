@@ -1,0 +1,80 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+	def __init__(self):
+		self.file_entity = None
+
+	def __str__(self):
+		return str(self.file_entity)
+
+	def __init__(self, file_entity):
+		self.file_entity = file_entity
+
+	def get_ext(self):
+		try:
+			return self.file_entity.file_type()
+		except FileEntitiesError:
+			return ''
+
+
+def file_entity.file_type(locale='en_US'):
+	return locale.lower()
+
+
+def file_entity.file_type_text(locale='en_US'):
+	return locale.lower() + '.txt'
+
+
+def file_entity.file_type_csv(locale='en_US'):
+	return file_entity.file_type() + '.csv'
+
+
+def __starting_point():
+	routes = dict(RouteDomain)
+	routes['/'] = dict(routes['/'], dict(RouteDomain))
+	routes['file'] = dict(routes['file'], dict(RouteDomain))
+	routes['file_text'] = dict(routes['file_text'], dict(RouteDomain))
+	routes['file_csv'] = dict(routes['file_csv'], dict(RouteDomain))
+	routes['404'] = dict(routes['404'], dict(RouteDomain))
+	routes['500'] = dict(routes['500'], dict(RouteDomain))
+	routes['file_txt'] = dict(routes['file_txt'], dict(RouteDomain))
+	routes['file_txt_text'] = dict(routes['file_txt_text'], dict(RouteDomain))
+	routes['(.*)'] = tuple(routes[key] for key in routes)
+	routes['(.*)'] = file_entities.get(key, '{}')
+	routes[('{}')] = file_entities.get(key, '{}')
+
+
+def main():
+	try:
+		print(routes)
+		print(routes[routes['file']])
+		print(routes[routes['file_text']])
+		print(routes[routes['file_csv']])
+		print(routes[routes['404']])
+		print(routes[routes['500']])
+		print(routes[routes['file_txt']])
+		print(routes[routes['file_txt_text']])
+		print(routes[routes['(.*)']])
+		print(routes[routes[('{}')]][0])
+	except Exception as e:
+		print(e)
+		pass
+
+def __starting_point():
+	main()
+
+if __starting_point():
+	main()
+<|endoftext|>

@@ -1,0 +1,80 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+	def __init__(self):
+		self.d = {}
+		self.d[\"*\"] = None
+		
+	def get_file_extension(self, file):
+		if file in self.d:
+			return self.d[file]
+			
+		if file == \"*\":
+			return \"*\"
+		
+		return self.get_file_extension(file.replace(\"*\", \"0\"))
+		
+	def create_file_extension(self, f):
+		self.d[f] = self.get_file_extension(f)
+		return self.d[f]
+	
+	def get_template(self, f):
+		if f == self.d[\"*\"]:
+			return f
+		
+		if f[0] ==\"*\":
+			return f
+		
+		return f[:self.d[f[0]]]
+	
+	def register(self, template, f):
+		if template[0]!=\"*\":
+			self.d[f[0]] = template
+		else:
+			self.d[f[0]] = f[1:]
+		
+	def get_template_registry(self):
+		return [self.d[f[0]] for f in self.d if f[0]!=\"*\"]
+		
+
+#     def get_template_registry(self):
+#         ret = []
+#         for Template in self.d['*']:
+#             if Template[0:4]!= ['*','0']:
+#                 ret.append(Template)
+#         return ret
+			
+		
+#     def get_template(self, Template):
+#         Template = Template.split('*')
+#         if Template[0] == '*':
+#             return Template[1:]
+#         return Template[:Template[0]]
+		
+		
+#     def create_template(self, Template):
+#         Template = Template.split('*')
+#         T = Template[0]
+#         if T[0] == '*':
+#             T[0] = '0'
+#         return T[1:]+T
+	
+	
+#     def register(self, Template, F):
+#         T = Template.split('*')
+#         if T[0] == '*':
+#             T[0] = '0'
+#         return Template[1:]+T
+<|endoftext|>

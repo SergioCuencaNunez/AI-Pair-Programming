@@ -1,0 +1,104 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath.
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+	def __init__(self):
+		self.map = {}
+		self.routes = {}
+
+	def __repr__(self):
+		return str(self.__dict__)
+
+	def add_route(self, key, value):
+		self.routes[key] = value
+
+	def has_route(self, key):
+		return key in self.routes
+
+	def get_route(self, key):
+		return self.routes[key]
+
+	def remove_route(self, key):
+		self.routes[key] = None
+
+
+def get_input_string(sr):
+	input_string = sr.get(0).split('/')[1].split('?')[0]
+	return input_string
+
+
+def main():
+	sr = get_input_string(get_input_string(get_input_string(get_input_string(sr))))
+	print(sr)
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input_string(sr))
+	print(get_input

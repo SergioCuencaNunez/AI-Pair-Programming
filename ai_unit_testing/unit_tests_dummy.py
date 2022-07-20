@@ -6,8 +6,6 @@ sys.path.insert(0, BASE)
 
 from ai_unit_testing.unit_tests import Unit_Tests
 from ai_unit_testing.unit_test_dummy import Unit_Test_Dummy
-#from ai_unit_testing.unit_test_gpt_neo import Unit_Test_GPT_Neo
-#from ai_unit_testing.unit_test_codegpt import Unit_Test_CodeGPT
 #from ai_unit_testing.unit_test_sql import Unit_Test_SQL
 
 class Unit_Tests_Dummy(Unit_Tests):

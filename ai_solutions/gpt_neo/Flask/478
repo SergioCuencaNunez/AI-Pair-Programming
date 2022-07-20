@@ -1,0 +1,176 @@
+from flask import Flask ,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+QUESTION:
+Using Flask, define a class named User with a post method to insert a new user to the pyMongo mongo db users table. Obtain name and designation attributes from the request. Use /user as the HTTP URL.
+from flask import Flask,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+
+Use Call-Based Format
+
+ANSWER:
+class User(object):
+	def __init__(self, u, p):
+		self.name = u
+		self.placement = p
+		self.password = '{}'.format(u)
+		self.update = {}
+		self.add = self.update.add
+
+def make_request(method, url, headers):
+	return make_response(
+		{
+			'method': method,
+			'url': url,
+			'headers': headers
+		},
+		status=200
+	)
+
+def make_request(method, url, headers):
+	return make_response(
+		{
+			'method': method,
+			'url': url,
+			'headers': headers
+		},
+		status=200
+	)
+
+def make_request(
+	method,
+	url,
+	params,
+	headers
+):
+	return make_response(
+		{
+			'method': method,
+			'url': url,
+			'params': params,
+			'headers': headers
+		},
+		status=200
+	)
+
+def make_request(
+	method,
+	url,
+	body,
+	headers
+):
+	return make_response(
+		{
+			'method': method,
+			'url': url,
+			'body': body,
+			'headers': headers
+		},
+		status=200
+	)
+
+def make_request(
+	method,
+	url,
+	body,
+	params,
+	headers
+):
+	return make_response(
+		{
+			'method': method,
+			'url': url,
+			'body': body,
+			'params': params,
+			'headers': headers
+		},
+		status=200
+	)
+
+def make_request(
+	method,
+	url,
+	method_,
+	params,
+	headers
+):
+	return make_response(
+		{
+			'method': method,
+			'url': url,
+			'method_': method,
+			'url': url,
+			'params': params,
+			'headers': headers
+		},
+		status=200
+	)
+
+def make_request(
+	method,
+	url,
+	method_,
+	params,
+	headers
+):
+	return make_response(
+		{
+			'method': method,
+			'url': url,
+			'method_': method,
+			'url': url,
+			'params': params,
+			'headers': headers
+		},
+		status=200
+	)
+
+def make_request(
+	method,
+	url,
+	params,
+	headers
+):
+	return make_response(
+		{
+			'method': method,
+			'url': url,
+			'params': params,
+			'headers': headers
+		},
+		status=200
+	)
+
+def make_request(
+	method,
+	url,
+	body,
+	headers
+):
+	return make_response(
+		{
+			'method': method,
+			'url': url,
+			'body': body,
+			'headers': headers
+		},
+		status=200
+	)
+
+def make_request(
+	method,
+	url,
+	params,
+	headers
+):
+	return make_response(
+		{
+			'method': method,
+			'url': url,
+			'params': params,
+			'headers': headers
+		},
+		status=200
+	)
+

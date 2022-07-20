@@ -1,0 +1,92 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+	def __init__(self):
+		self.routes = {}
+		self.routes[\"*\"] = None
+		self.file_map = {}
+		self.chk = None
+
+	def __str__(self):
+		if self.chk:
+			return f\"{str(self.chk)}:{self.routes}\"
+		return f\"{self.routes[\"*\"]}:{self.file_map}\"
+
+	def __setattr__(self, name, value):
+		if name == \"chk\":
+			if self.chk:
+				value = 1
+			else:
+				value = 0
+		else:
+			if set(value)!= {\"*\"}:
+				value = \"{}\"
+			self.routes[name] = value
+			if value not in self.file_map:
+				self.file_map[value] = None
+			self.file_map[value].__setattr__(name, value)
+
+	def add(self, key, value):
+		if key in self.routes:
+			self.routes[key] = value
+			return
+		if value!= \"*\":
+			self.file_map[value] = None
+			self.routes[key] = value
+		else:
+			self.routes[key] = value
+
+	def start(self):
+		self.chk = 1
+		while not self.file_map[self.routes[\"*\"]]:
+			self.chk = 0
+		if self.chk == 1:
+			del self.routes[self.file_map[self.routes[\"*\"]]]
+			self.file_map[self.routes[\"*\"]] = self.routes[\"*\"]
+			self.routes[\"*\"] = None
+		else:
+			self.file_map[self.routes[\"*\"]] = self.routes[\"*\"]
+
+	def end(self):
+		while not self.file_map[self.routes[\"*\"]]:
+			self.chk = 0
+		if self.chk == 1:
+			self.routes[self.file_map[self.routes[\"*\"]]] = self.routes[\"*\"]
+			self.file_map[self.routes[\"*\"]] = None
+		else:
+			self.routes[self.file_map[self.routes[\"*\"]]] = None
+
+
+class FileTXT:
+	def __init__(self, name):
+		self.name = f\"{name}\"
+		self.__dict__ = {}
+		self.__dict__[\"$\"] = \"$\"
+
+	def __str__(self):
+		if self.__dict__:
+			return \" d: {\" + \".join(str(x) for x in self.__dict__.values()) + \"}\".format(self.name)
+		return str(self.name)
+
+	def __setattr__(self, name, value):
+		if name == self.name:
+			self.__dict__[\"$\"] = value
+			return
+		if set(value)!= {\"$\"}:
+			self.__dict__[name] = value
+			return
+		self.__dict__[name] = value
+
+	def add(self

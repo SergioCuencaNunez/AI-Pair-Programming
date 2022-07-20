@@ -1,0 +1,99 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath.
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+
+	def __init__(self):
+		self.map = {}
+
+	def __setitem__(self, key, value):
+		if key not in self.map:
+			self.map[key] = []
+		self.map[key].append(value)
+	
+	def find(self, item):
+		if item not in self.map:
+			return []
+		return self.map[item]
+
+	def __lt__(self, other):
+		return (self.find(other) < self.find(item))
+
+	def __init_with_mapping(self, mappings):
+		self.map = mappings
+
+	def generate(self):
+		self.map = list(self.map)
+		for key in self.map:
+			self.map[key] = list(self.map[key])
+		return 
+		
+	
+		
+class RouteFile():
+	def __init__(self, file):
+		self.map = {}
+		self.file = file
+		
+	def generate(self):
+		self.map = {}
+		self.file = file.split('/')[1]
+		for key in self.file:
+			self.map[key] = self.route(key)
+
+	def route(self, key):
+		if key not in self.map:
+			self.map[key] = []
+		self.map[key].append(self.file)
+		return self.map[key]
+		
+				
+class Route():
+	def __init__(self, file, key=None):
+		self.map = {}
+		if key:
+			self.map[key] = RouteDomain()
+		else:
+			self.map[key] = RouteFile(file)
+
+	def generate(self):
+		self.map = dict(zip(list(self.map.keys()), list(self.map.values())))
+
+	def matches(self, file):
+		for path in self.file:
+			if path in self.map:
+				return True
+			if not self.map[path]:
+				continue
+			if file + \" not match \".join(self.map[path].split('\\')):
+				return False
+		return True
+		
+	def generate(self):
+		self.map = dict(zip(list(self.map.keys()), list(self.map.values())))
+		
+	def __init__(self, file, key=None):
+		self.map[key] = self.RouteDomain()
+		if key:
+			self.map[key].setitem(
+				key, self.RouteFile(file.split('/')[1])
+			)
+		else:
+			self.map[key].setitem(
+				key, self.RouteDomain()
+			)
+
+	def matches(self, file):
+		return self.map[file] and self.map[file].matches(self.file)
+<|endoftext|>

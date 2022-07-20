@@ -1,0 +1,38 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+	def __init__(self):
+		self.dom = None
+
+	def __setitem__(self, key, value):
+		if isinstance(key, int):
+			if value == '':
+				self.dom = None
+			else:
+				self.dom = RouteDomain()
+				self.dom.file_entity = str(key) + value
+		else:
+			if value and not self.dom.file_entity:
+				self.dom.file_entity = value
+			else:
+				self.dom.file_entity = value
+				if self.dom.file_entity[-2] == 'x':
+					self.dom.file_entity = self.dom.file_entity[:-2] + 'x'
+				else:
+					self.dom.file_entity = self.dom.file_entity
+			
+		if value and not self.dom.file_entity:
+			self.dom.file_entity = str(key) + value
+<|endoftext|>

@@ -155,4 +155,30 @@ Proyecto de Inteligencia Artificial en Accenture
 - Documentación de las pruebas realizadas con español e inglés de todos los conjuntos de datos.
 - Pruebas para observar la capacidad del modelo CodeGPT en diferentes idiomas.
 
+## Martes, 12 de julio 2022
+
+- Nueva implementación de Unit Testing con librerias y uso de mocks.
+
+## Miércoles, 13 de julio 2022
+
+- Pruebas para observar la capacidad del modelo GPT Neo en diferentes idiomas.
+- Continuación de la implementación de Unit Testing.
+
+## Jueves, 14 de julio 2022
+
+- Implementación de la nueva unidad de Unit Testing completada.
+- Pruebas y obtención de métricas de Codex para los problemas más complejos.
+
+## Viernes, 15 de julio 2022
+
+- Limpieza de soluciones generadas por Codex de los problemas más complejos.
+- Overview general del conjunto de datos y los diferentes modelos.
+
+## Lunes, 18 de julio 2022
+
+- Correción de la limpieza de soluciones para obtenet métricas plausibles.
+
+## Martes, 19 de julio 2022
+
+
 

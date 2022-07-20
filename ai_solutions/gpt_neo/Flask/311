@@ -1,0 +1,82 @@
+from flask import Flask ,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+QUESTION:
+Using Flask, define a get method to find a user in the pyMongo mongo db users table using the name and designation attributes given in the query string. Use /user as the HTTP URL.
+from flask import Flask,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+
+Use Call-Based Format
+
+ANSWER:
+from collections import defaultdict
+
+class User(object):
+	def __init__(self, name, designations):
+		self.name = name
+		self.designations = designations
+		
+	def __lt__(self, other):
+		return self.name < other.name
+	
+	def __eq__(self, other):
+		return self.name == other.name
+	
+	def get(self, name, designations):
+		result = {}
+		for i in self.designations:
+			result[i] = self.name
+		return result
+		
+		
+flask = Flask("https://go.prince.tech/users")
+request = request.__class__()
+jsonify = jsonify.__class__()
+
+class UserDocument(object):
+   def __init__(self, document):
+	   self.users = {
+		  'user': User(
+			  'name',
+			  'designations'
+		    )
+	   }
+	   
+	def __eq__(self, other):
+	   return self.users.get('user').__lt__(other.users['user'])
+	
+	def __le__(self, other):
+	   return self.users.get('user').__le__(other.users['user'])
+	
+	def __gt__(self, other):
+	   return self.users.get('user').__gt__(other.users['user'])
+	
+	def __ge__(self, other):
+	   return self.users.get('user').__ge__(other.users['user'])
+	   
+	@property
+	def username(self):
+	   return self.users.get('user').username
+	
+	@property
+	def designations(self):
+	   return self.users.get('user').designations
+	
+	@property
+	def email(self):
+	   return self.users.get('user').email
+	
+	@property
+	def password(self):
+	   return self.users.get('user').password
+	
+	def get(self, name, designations):
+	   result = {}
+	   for i in designations:
+		  if i == 'user':
+			 result['user'] = self
+		  else:
+			 result[i] = self.name
+	   return result
+<|endoftext|>

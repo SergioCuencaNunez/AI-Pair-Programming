@@ -1,0 +1,23 @@
+from flask import Flask ,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+QUESTION:
+Using Flask, define a get method to find a user in the pyMongo mongo db users table using the name and designation attributes given in the query string. Use /user as the HTTP URL.
+from flask import Flask,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+
+Use Call-Based Format
+
+ANSWER:
+# Create a Flask app, install dependencies, and create a resource.
+app = Flask()
+app.config['MONGODB_aitable'] = 'users'
+app.set_app_id(1)
+# Create a JSON payload for the resources.
+req = JSONify( {'name': 'Greg', 'designation': 'Sales'} )
+# Make a response for the resource.
+res = app.get( '', req )
+# Return the response.
+return res    
+<|endoftext|>

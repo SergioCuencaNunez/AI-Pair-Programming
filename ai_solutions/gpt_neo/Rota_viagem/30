@@ -1,0 +1,90 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+
+	def __init__(self):
+		self.ext = None
+		self.files = {}
+		self.texts = {}
+
+	def add_files(self, raw_files):
+		if raw_files:
+			if raw_files[ext] == None:
+				self.ext = '.'
+				self.files[ext] = self.texts[ext]
+			else:
+				self.ext = self.ext if self.ext in raw_files[ext] else self.files[ext][0]
+				self.files[ext].append(self.texts[ext])
+		else:
+			self.ext = ''
+			
+	def remove_files(self, raw_files):
+		if raw_files:
+			if self.ext not in raw_files[ext]:
+				del raw_files[ext]
+				if self.ext == '.':
+					del self.files[ext]
+				else:
+					self.files[ext].remove(self.files[ext])
+					
+			else:
+				self.ext = ''
+				
+	def convert_ext(self, val):
+		if val and val[0].isnumeric():
+			self.files[val[0]][0] = val[1]
+		if val and val[0].isalpha():
+			self.files[val[0]].insert(0, val[1])
+	
+	
+	def get_files(self):
+		return self.files[self.ext]
+		
+	def has_text(self):
+		return any(files.keys()for files in self.files.values())
+	
+	def has_files(self):
+		return any(files.keys()for files in self.files.values())
+	
+	def generate_chk(self):
+		self.texts[self.ext] = {}
+		for key in self.files.keys():
+			self.texts[self.ext][key] = self.files[key].copy()
+	
+	def generate_report(self):
+		for key in self.files.keys():
+			self.files[key].sort()
+			for f in self.files[key]:
+				self.generate_chk()
+				
+		for key in self.texts.keys():
+			self.texts[key].sort()
+			for f in self.texts[key]:
+				self.generate_chk()
+		
+	
+	def generate_solution(self):
+		if self.ext == None:
+			self.generate_report()
+		else:
+			self.generate_chk()
+			self.generate_chk()
+			self.generate_chk()
+			self.generate_chk()
+			self.generate_chk()
+			
+			
+			
+<|endoftext|>

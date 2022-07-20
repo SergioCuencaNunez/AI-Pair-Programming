@@ -1,0 +1,102 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Use a function called get_lines to read each line of the file_entity and store it in a variable called data.  Define a new attribute in the class named graph that using the variable data instances a Graph class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class FileTXT(object):
+	def __init__(self, text):
+		self.text = text
+		self.l = []
+	def read(self):
+		return self.l
+	def write(self, text):
+		for x in range(self.l):
+			if text == x:
+				self.l.append(x)
+			else:
+				self.l[x] = text
+	def __repr__(self):
+		return "Text: {self.text}, l: {self.l}"
+
+class FileCSV(object):
+	def __init__(self, text):
+		self.text = text
+		self.l = []
+	def read(self):
+		return self.l
+	def write(self, text):
+		for x in range(self.l):
+			if text == x:
+				self.l.append(x)
+			else:
+				self.l[x] = text
+	def __repr__(self):
+		return "Text: {self.text}, l: {self.l}"
+
+
+def make_dic(types, dic):
+	for key, value in dic.items():
+		if isinstance(value, str):
+			if isinstance(key, str) and key in types:
+				dic[key] = value
+			else:
+				dic[key] = key
+		else:
+			dic[key] = key
+
+def make_types(dic):
+	types = {str:str,
+			   bool:bool,
+			   int:int,
+			   float:float,
+			   list:List[int],
+			   dict:dict}
+	return types
+
+def route(r, domain):
+	routes = {}
+	routes[domain] = []
+
+	def add(route, domain):
+		if domain in routes:
+			routes[domain].append(route)
+		else:
+			routes[domain] = []
+
+	add(r, domain)
+
+	return routes
+
+
+class RouteDomain():
+
+	def __init__(self, file):
+		self.file = file
+		self.routes = make_dic(FileTXT, {})
+		self.routes.setdefault(self.file, [] )
+
+	def route(self, file):
+		routes = self.routes
+		routes[self.file] = []
+		add(routes, self.file)
+		return self.file
+
+
+if "__import__" in sys.modules:
+	sys.stdin = open("test.txt", "r")
+	sys.stdout = open("test.txt", "w")
+else:
+	sys.stdin = open("test.txt")
+	sys.stdout = open("test.txt", "w")
+if sys.hexversion == 50594544 :
+	print("warning: hex version is too old. Will try to upgrade in summer of 2020...")
+<|endoftext|>

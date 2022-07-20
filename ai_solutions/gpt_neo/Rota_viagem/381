@@ -1,0 +1,56 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Use a function called get_lines to read each line of the file_entity and store it in a variable called data.  Define a new attribute in the class named graph that using the variable data instances a Graph class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+    
+	def __init__(self):
+		self.data = None
+		self.graph = None
+		self.extension = None
+		
+	def __str__(self):
+		return str(self.data) + ':'+ str(self.graph) + ':' + str(self.extension)
+	
+	def get_lines(self):
+		if self.data == None:
+			return []
+		n = int(self.data[-1].split('.')[0])
+		return [x.strip('\n') for x in self.get_lines(n) + [self.data[-1]]]
+	
+	def __init__(self, data=None, graph=None, extension=None):
+		self.data = data if data else (lambda: '')[:20]
+		self.graph = graph if graph else (lambda: [])([x.strip('\n') for x in self.get_lines(int(data[-1].split('.')[0]))])
+		self.extension = extension if extension else (lambda: '')[-4:]
+	
+	def add_node(self, x):
+		if not x:
+			x = ''
+		self.data = self.get_lines(int(x[0]+'.0')) + x[1:]
+		self.graph = self.get_lines(x[1:])
+	
+	def add_edge(self,u,v):
+		if not u or not v:
+			return
+		u = self.graph[u[0]]
+		v = self.graph[v[0]]
+		if not u[1]:
+			u[1] = v[1]
+		else:
+			u[1] = self.extension if self.extension!= '' and self.extension[-4:] == v[1] else v[1]
+		self.add_node(u[0])
+		self.add_node(v[0])
+		
+		
+		
+<|endoftext|>

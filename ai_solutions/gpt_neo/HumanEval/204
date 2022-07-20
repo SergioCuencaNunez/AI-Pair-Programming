@@ -1,0 +1,47 @@
+
+
+def is_prime(n):
+
+QUESTION:
+"""Return true if a given number is prime, and false otherwise.
+    >>> is_prime(6)
+    False
+    >>> is_prime(101)
+    True
+    >>> is_prime(11)
+    True
+    >>> is_prime(13441)
+    True
+    >>> is_prime(61)
+    True
+    >>> is_prime(4)
+    False
+    >>> is_prime(1)
+    False
+    """
+
+
+
+def is_prime(n):
+
+
+Use Call-Based Format
+
+ANSWER:
+def is_prime(n):
+	# n will be odd number
+	if n % 2 == 0:
+		return False
+	# all odd numbers are not prime
+	if n == 1:
+		return False
+	# all even numbers are not prime
+	if n % 2!= 0:
+		return False
+	r = 3
+	while r * r <= n:
+		if n % r == 0:
+			return False
+		r += 2
+	return True
+<|endoftext|>

@@ -1,0 +1,99 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+
+	def __init__(self):
+		self.d = {}
+
+	def domain(self, file):
+		if file not in self.d:
+			self.d[file] = {}
+		if file not in self.d:
+			self.d[file] = ""
+		res = file.split(".")[-1]
+		if res in self.d:
+			self.d[res] = self.d[file]
+		else:
+			self.d[res] = ""
+		self.d[file] = file
+
+	def file(self, file):
+		if file not in self.d:
+			self.d[file] = {}
+		if file not in self.d:
+			self.d[file] = ""
+		self.d[file].setdefault("text", "")
+		res = file.split(".")[-1]
+		if res in self.d[file]:
+			self.d[file][res] = self.d[file][file].replace("txt", "txt")
+		else:
+			self.d[file][res] = self.d[file][file]
+		self.d[file][res] = self.d[file][res].replace("csv", "txt")
+
+	def extension(self, file):
+		return file.split(".")[-1].split(".")[-1].split(".")[0]
+
+
+# class RouteDomain():
+
+	def __init__(self):
+		self.d = {}
+	
+	def domain(self, file):
+		if file not in self.d:
+			self.d[file] = {}
+		if file not in self.d:
+			self.d[file] = ""
+		self.d[file].setdefault("text", "")
+		if file.endswith("txt"):
+			self.d[file]["text"] = file
+		else:
+			self.d[file]["text"] = ""            
+		if file.endswith("csv"):
+			self.d[file]["file"] = file
+		else:
+			self.d[file]["file"] = ""
+			
+	def file(self, file):
+		if file not in self.d:
+			self.d[file] = {}
+		if file not in self.d:
+			self.d[file] = ""
+		self.d[file].setdefault("text", "")
+		if file.endswith("txt"):
+			self.d[file]["text"] = file
+		else:
+			self.d[file]["text"] = ""            
+		if file.endswith("csv"):
+			self.d[file]["file"] = file
+		else:
+			self.d[file]["file"] = ""
+			
+	def extension(self, file):
+		return file.split(".")[-1].split(".")[-1].split(".")[0]
+		 
+
+
+# #############################################################################
+# # class RouteDomain():
+
+	# #def __init__(self):
+	# #     self.d = {}
+	# #
+	# #def domain(self, file):
+	# #     if file not in self.d:
+	# #         self.d[file] = {}
+	# #     if file not in self.d:
+	# #         self.d

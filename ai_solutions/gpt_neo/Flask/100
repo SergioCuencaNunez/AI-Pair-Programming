@@ -1,0 +1,34 @@
+from flask import Flask ,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+QUESTION:
+Using Flask, define a get method to find a user in the pyMongo mongo db users table using the name and designation attributes given in the query string. Use /user as the HTTP URL.
+from flask import Flask,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+
+Use Call-Based Format
+
+ANSWER:
+from collections import defaultdict
+
+# create the default mongo client, set uri to be of type url
+# create a dict for the keys of the dict, uri for the values of the dict
+# create a list of those dicts, and add each dict to the list
+# create a mongo query, using the name and designations from the query
+# make a response of type json
+# build a tuple with those list elements
+
+# def get(request, response):
+#     uri = request.get('uri')
+#     if not uri:
+#         uri ='mongodb://{}/{}'.format(host, app)
+#         nonlocal client
+#         client.set_uri(uri)
+#     return jsonify(list(map(lambda x: x[0], response.items())))
+# endpoint = Flask(__ramid__)
+# server = Api(endpoint, template_file='.views')
+# client = PyMongo(connection_string=server.url_scheme, database_host="{}/{}".format(host, app), database_port=27017)
+def get(request, response):
+	return client.find(request, response)
+<|endoftext|>

@@ -1,0 +1,100 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Use a function called get_lines to read each line of the file_entity and store it in a variable called data.  Define a new attribute in the class named graph that using the variable data instances a Graph class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+
+	def __init__(self):
+		self.routes = {}
+		self.routes[\"*\"] = True
+		
+	def __str__(self):
+		return str(self.routes)
+	
+	def __init__(self):
+		self.routes = {}
+		self.routes[\"*\"] = True
+		
+	def add(self, domain, file):
+		if domain == \"*\" or file == None:
+			self.routes[file] = []
+			return
+		
+		self.routes[file].append(domain)
+		
+		
+	def read_lines(self, file):
+		result = []
+		for line in file.readlines():
+			result.append(line)
+		return result
+	
+	def generate_sorted_routes(self):
+		routes = {}
+		for key in list(self.routes.keys()):
+			routes[key] = sorted(self.routes[key])
+		return routes
+	
+	def generate_sorted_domains(self):
+		domains = {}
+		for key in list(self.routes.keys()):
+			domains[key] = self.routes[key].split(\",\")[-1]
+		return domains
+
+class FileTXT:            
+	def __init__(self, name):
+		self.name = name
+		self.parent = None
+		self.children = []
+
+class FileCSV:            
+	def __init__(self, name):  
+		self.name = name
+		self.parent = None
+		self.children = []
+
+class Graph:
+	def __init__(self, data):
+		self.data = data
+		self.elements = []
+		
+	def add_to_elements(self, csv):
+		self.elements.append(csv)
+	
+	def find_element(self, csv):
+		return csv.find_element(self.name)
+	
+	def is_complete_graph(self):
+		return self.find_element(self.data) == self.parent
+	
+	def is_a_child(self, csv):
+		return csv.is_a_child(self.parent)
+	
+	def is_a_parent(self, csv):
+		return csv.is_a_parent(self.parent)
+	
+	def is_complete_graph(self):
+		return self.find_element(self.data) == self.parent
+		
+	def generate_sorted_routes(self): 
+		routes = {}
+		for key in list(self.routes.keys()):
+			routes[key] = sorted(list(self.routes[key]))
+		return routes
+	
+	def generate_sorted_domains(self):
+		domains = {}
+		for key in list(self.routes.keys()):
+			domains[key] = self.routes[key].split(\",\")[-1]
+		return domains
+<|endoftext|>

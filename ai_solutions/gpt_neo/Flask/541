@@ -1,0 +1,45 @@
+from flask import Flask ,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+QUESTION:
+Using Flask, define a get method to find a user in the pyMongo mongo db users table using the name and designation attributes given in the query string. Use /user as the HTTP URL.
+from flask import Flask,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+
+Use Call-Based Format
+
+ANSWER:
+from collections import defaultdict
+
+class User:
+	def __init__(self, name, designation):
+		self.name = name
+		self.designation = designation
+		self.password = None
+		self.is_active = True
+		self.can_change = False
+		self.logned = 0
+		self.count_logged_in = 0
+		self.count_active = 0
+		self.count_designation = 0
+		self.change_log = 0
+		self.count_other_than_logged_in = 0
+		self.count_active_and_designation = 0
+		self.count_other_than_active_and_designation = 0
+		self.change_log_count = 0
+		self.count_other_than_active = 0
+		self.count_designation_and_active = 0
+		self.count_designation_and_logged_in = 0
+
+		self.relations = defaultdict(lambda: [])
+		self.relations[self.name] = self.relations[self.name].append(self)
+		self.relations[self.designation] = self.relations[self.designation].append(self)
+
+	def __lt__(self, other):
+		return (self.password is not None) or (self.is_active is not True) or (self.count_active < other.count_active) or (self.count_designation < other.count_designation) or (self.count_other_than_active < other.count_other_than_active) or (self.count_active_and_designation < other.count_active_and_designation) or (self.count_other_than_active_and_designation < other.count_other_than_active_and_designation)
+
+def get(url=None, json=None):
+	app = make_response(Api({"users": User}))
+	return app.get(url, json)
+<|endoftext|>

@@ -1,0 +1,33 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Use a function called get_lines to read each line of the file_entity and store it in a variable called data.  Define a new attribute in the class named graph that using the variable data instances a Graph class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+
+	def __init__(self):
+		self.routes = {}
+
+	def get_lines(self, extension):
+		return zip(*[iter(self.routes[f]) for f in self.routes.get(extension, [])]).split('\n')
+
+	def file_entity(self, extension):
+		return get_lines(extension).pop()
+
+	def graph(self, extension):
+		return get_lines(extension).pop()
+
+
+rdomain = RouteDomain()
+rdomain.graph.set('.xls'.split('.'))
+rdomain.file_entity.set('.')
+<|endoftext|>

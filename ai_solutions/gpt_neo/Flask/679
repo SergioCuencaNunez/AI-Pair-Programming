@@ -1,0 +1,33 @@
+from flask import Flask ,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+QUESTION:
+Using Flask, define a get method to find all users in the pyMongo mongo db users table using the columns name and designation given in the query string. Use /users as the HTTP URL.
+from flask import Flask,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+
+Use Call-Based Format
+
+ANSWER:
+import json
+import re
+def get(url):
+	return json.dumps( {'users': list(map(lambda x: re.findall(r'\d+', x), urllib.parse.url(url).split('?')) )} )
+
+class Resource():
+	def __init__(self, r):
+		self.app = PyMongo(r['users'])
+		self.r = r
+		
+class Api(object):
+	 @staticmethod
+	 def get_pars(r):
+		return self.r
+
+	def get(self):
+		return self.get_pars()
+	
+	def put(self, data):
+		app['users'].append(json.dumps(data))
+<|endoftext|>

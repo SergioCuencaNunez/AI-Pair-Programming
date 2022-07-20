@@ -1,0 +1,70 @@
+
+
+class RouteDomain():
+
+QUESTION:
+Define a class named RouteDomain that has an atributte called file. The attribute called file is equal to an input given to the class. The input given to the class is called filepath. Obtain the extension of the file. Define a new attribute in the class named file_entity that depending of the extension of the file instances a FileCSV class or a FileTXT class. Use a function called get_lines to read each line of the file_entity and store it in a variable called data.  Define a new attribute in the class named graph that using the variable data instances a Graph class. Do not use os or sys libraries
+
+
+class RouteDomain():
+
+
+Use Call-Based Format
+
+ANSWER:
+class RouteDomain():
+
+	def __init__(self):
+		self.data = None
+		self.graph = None
+
+	def get_lines(self, extension=""):
+		if self.data == None:
+			self.data = []
+			self.graph = []
+		if extension == "txt":
+			self.graph.append(self.data)
+			return "".join(self.data)
+		if extension == "csv":
+			self.graph.append(self.data.split(","))
+			return "".join(self.data.split(","))
+		else:
+			self.data.append(extension)
+			return self.data.split(",")
+
+	def process(self, req, file):
+		if req == "import":
+			if self.data == None:
+				self.data = []
+				self.graph = []
+			if file.startswith("data"):
+				self.data.append(file)
+				self.graph.append(self.data[len(self.data)-1])
+			else:
+				self.data = self.get_lines(file)
+				if len(self.data) == 1:
+					self.graph.append(self.data[0])
+				elif len(self.data) > 1:
+					self.graph.append(self.data[1:])
+			return
+		if req == "compile":
+			res = compile(self.data)
+			if file.startswith("code"):
+				res = compile(res)
+				res = self.process(res, file)
+			elif file.startswith("data"):
+				self.process(req, file)
+			else:
+				self.process(req, file)
+		elif req == "test":
+			res = test(self.data, self.graph)
+			if file.startswith("test.txt"):
+				res = test(res, self.data)
+			else:
+				res = test(self.data, self.graph)
+			return res
+		if req == "help":
+			return self.get_lines(file)
+		if req == "test":
+			return self.get_lines(file)
+<|endoftext|>
