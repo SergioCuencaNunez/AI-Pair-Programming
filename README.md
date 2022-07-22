@@ -176,9 +176,21 @@ Proyecto de Inteligencia Artificial en Accenture
 
 ## Lunes, 18 de julio 2022
 
-- Correción de la limpieza de soluciones para obtenet métricas plausibles.
+- Correción de la limpieza de soluciones para obtener métricas plausibles.
 
 ## Martes, 19 de julio 2022
 
+- Pruebas con todos los conjuntos de datos y Unit Testing actualizado con GPT Neo.
 
+## Miércoles, 20 de julio 2022
 
+- Primeras pruebas con GPT-J y opción para implementar haciendo web scrapping.
+- Pruebas de GPT-J con Postman
+
+## Jueves, 21 de julio 2022
+
+- Implementación del modelo GPT-J en la arquitectura y pruebas con problemas complejos.
+
+## Viernes, 22 de julio 2022
+
+- Continuación de las pruebas con GPT-J y limpieza de soluciones.

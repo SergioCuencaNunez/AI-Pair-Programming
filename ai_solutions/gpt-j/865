@@ -1,0 +1,52 @@
+from flask import Flask ,request,jsonify, make_response
+from flask_restful import Resource, Api
+from flask_pymongo import PyMongo
+app = Flask(__name__)
+api=Api(app)
+app.config['MONGO_DBNAME'] = 'restdb'
+app.config['MONGO_URI'] = 'mongodb://db:27017/restdb'
+mongo = PyMongo(app)
+
+class User(Resource):
+    def post(self):
+        name = request.json['name']
+        designation = request.json['designation']
+        doc = {'name':name,'designation':designation}
+        users=mongo.db.users
+        users.insert(doc)
+        return jsonify({"message":"Successfully added new user"})
+
+api.add_resource(User, '/user')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
+users.insert(doc)
+
+mongo.db.users.insert(doc)
+
+mongo.db.users.insert(doc)
+
+from pymongo import MongoClient
+
+    mongo = MongoClient()
+    db = mongo.db.users
+
+    #...
+
+    db.insert(doc)
+
+    return jsonify({"message": "Successfully added new user"})
+
+    #...
+
+mongo = MongoClient()
+db = mongo.db.users
+
+    #...
+
+    db.insert(doc)
+
+    return jsonify({"message":

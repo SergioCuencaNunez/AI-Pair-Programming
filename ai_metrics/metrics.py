@@ -34,7 +34,7 @@ class Metrics:
         return metrics_list
     
     def pass_at_k(self):
-        for i in [1,5,10]:
+        for i in [1,10,30]:
             for problem_id, problem in self.metrics.items():
                 if any(rm.sample(problem["result"], i)):
                     problem["pass@" + str(i)] = "OK"

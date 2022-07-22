@@ -28,6 +28,7 @@ class Unit_Test_Dummy(Unit_Test):
             #print(program)
             a = rm.randint(1, 1000)
             shutil.copyfile("ai_unit_testing/code_under_test.py", str(a))
+            print(str(a))
             print("-"*60)
             print("\n"*5)
             return False

@@ -1,4 +1,4 @@
-import sys, os, re
+import sys, os
 import torch
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE)
@@ -27,7 +27,7 @@ class Model_GPT_Neo(Model):
         count = 0
         abstract, head, solution_cropped = solution.partition("ANSWER:\n")
         for line in solution_cropped.splitlines(True):
-            if line.startswith('#') or line.startswith('-') or line.startswith('`') or line.startswith('<') or line.startswith('>') or line.startswith('/') or line.startswith('http') or line.startswith('"') or line[0].isupper():
+            if line.startswith('#') or line.startswith('-') or line.startswith('`') or line.startswith('<') or line.startswith('>') or line.startswith('/') or line.startswith('http') or line.startswith('"') or line.startswith('$') or line.startswith('+') or line.startswith('!') or line.startswith('@') or line[0].isupper():
                 continue 
             new_solution += line
             

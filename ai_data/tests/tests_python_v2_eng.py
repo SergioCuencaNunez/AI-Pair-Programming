@@ -23,6 +23,7 @@ def test_user_post():
     client = app.test_client()
     mock_db = mongomock.MongoClient().db.collection
     mock_db.insert = insert_mock
+    mock_db.insert_one = insert_mock
     mock_db.find_one = Mock(return_value = {"name": "Sergio", "designation": "Accenture"})
     
     with patch("ai_unit_testing.code_under_test.mongo.db.users", new = mock_db):
